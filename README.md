@@ -7,3 +7,4 @@
 [coolors.co](https://coolors.co/palette/cee5f2-accbe1-7c98b3-637081-536b78)
 
 ## Diagramme
+![Synopsis](/papanikolaou_alexia_ps1_1/assets/synopsis.drawio.png)
