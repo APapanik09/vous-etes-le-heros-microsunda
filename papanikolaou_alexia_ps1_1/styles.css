@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "deadfont";
+    src: url(assets/fonts/Dead\ Font\ Walking.otf);
+}
+
+@font-face {
+    font-family: "haunt";
+    src: url(assets/fonts/HauntAOE.ttf);
+}
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: rgb(206, 212, 218);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: "haunt";
+    color: #242E34
+    
+}
+
+.game {
+    display: flex;
+    width: 900px;
+    min-height: 100px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(172, 203, 225);
+    padding: 2%;
+
+}
+
+.representation {
+    width: 100%;
+    margin: 40px 0 40px 0;
+    border: groove rgb(124, 152, 179) 10px;
+}
+
+.titre {
+    font-family: "deadfont";
+    font-size: 5vw;
+    color: #1E262B;
+}
+
+.chapitre {
+    font-size: 1.5vw;
+
+}
+
+.texte {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.options {
+    font-size: 2em;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+    
+}
+
+a {
+    border: groove rgb(124, 152, 179) 10px;
+    padding: 3%;
+    background-color: rgb(206, 212, 218);
+    color: #1E262B;
+}
