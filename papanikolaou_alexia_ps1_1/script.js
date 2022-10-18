@@ -2,7 +2,7 @@ let chaptersObj = {
 prologue: {
     subtitle: "C'est l'apocalypse!",
     text: "Vous et votre ami avez été à la recherche d'un mystérieux laboratoire qui est censé contenir un prototype de l'antidote contre le virus zombie et aujourd'hui est le jour où vous avez enfin trouvé son emplacement. Vous êtes maintenant prêts à partir ! ",
-    img:"",
+    img:"lab_PS1.png",
     options: [
         {text:'Commencez votre adventure?', action:'goToChapter("livres")'}
     ]
@@ -20,7 +20,7 @@ livres: {
 
 barricade: {
     subtitle: "Faites vite!",
-    text: "Vous avez trouvé le laboratoire mais une horde de zombies s'approche rapidement de vous. Ton amie se fait mordre et vous rentrer hâtivement dans dans le laboratoire.Vous avez le choix entre deux types de barricades pour vous protéger des zombies affamés.",
+    text: "Vous avez trouvé le laboratoire mais une horde de zombies s'approche rapidement de vous. Ton amie se fait mordre et vous rentrer hâtivement dans dans le laboratoire. Vous avez le choix entre deux types de barricades pour vous protéger des zombies affamés.",
     img:"",
     options: [
         {text:'Déplacer une commode devant la porte?', action:'goToChapter("finbarr")'},
@@ -145,7 +145,8 @@ finmicro: {
 }
 
 function goToChapter(chapterName) {
-    console.log(chaptersObj[chapterName]["subtitle"]);
-    console.log(chaptersObj[chapterName]["text"]);
+    document.querySelector(".chapitre").textContent=chaptersObj[chapterName]["subtitle"];
+    document.querySelector(".texte").textContent=chaptersObj[chapterName]["text"];
+    document.querySelector(".imags").innerHTML= '<img class="representation" src="assets/images/'+ chaptersObj[chapterName]["img"] +'">';
     console.log(chaptersObj[chapterName]["options"]);
 }; 
