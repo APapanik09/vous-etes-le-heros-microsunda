@@ -1,3 +1,6 @@
+
+
+
 let chaptersObj = {
 prologue: {
     subtitle: "C'est l'apocalypse!",
@@ -69,8 +72,8 @@ enigfleur: {
     text: "Vous vous approchez d'une des pages déchirées, près de celle-ci se trouve un bac où poussent plusieurs types de fleurs, sur la feuille est écrit une charade: « Je suis la fleur qui fait fuir la peur de l'au-delà, et qui met au repos ceux qui ne sont plus-là.»",
     img:"",
     options: [
-        {text:'Lycoris Radiata', action:'goToChapter("engichim")'},
-        {text:'Echinacea', action:'goToChapter("engichim")'},
+        {text:'Lycoris Radiata', action:'goToChapter("enigchim")'},
+        {text:'Echinacea', action:'goToChapter("enigchim")'},
     ]
 },
 
@@ -148,5 +151,21 @@ function goToChapter(chapterName) {
     document.querySelector(".chapitre").textContent=chaptersObj[chapterName]["subtitle"];
     document.querySelector(".texte").textContent=chaptersObj[chapterName]["text"];
     document.querySelector(".imags").innerHTML= '<img class="representation" src="assets/images/'+ chaptersObj[chapterName]["img"] +'">';
-    console.log(chaptersObj[chapterName]["options"]);
-}; 
+    let mesopt = document.querySelector(".options");
+    mesopt.innerHTML="";
+
+
+    for(element of chaptersObj[chapterName]['options']){
+        let bout = document.createElement("button");    
+        bout.appendChild(document.createTextNode(element["text"]));
+        mesopt.appendChild(bout);
+        bout.setAttribute("onclick",element["action"]);
+        bout.setAttribute("type","button");
+
+
+    }
+
+}
+goToChapter("prologue");
+
+let livreLatin = false;
