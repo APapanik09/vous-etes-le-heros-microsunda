@@ -45,6 +45,10 @@ body {
     
 }
 
+img {
+    max-height: 450px;
+}
+
 .representation {
     margin: 40px 0 40px 0;
     border: groove rgb(124, 152, 179) 10px;
