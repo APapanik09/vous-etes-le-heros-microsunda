@@ -188,10 +188,12 @@ localStorage.setItem("Name",[chapterName]);
 
 }
 
-let livreFound = Boolean("Livre");
-let lycoChose = Boolean("Lycoris Radiata");
-let formaChose = Boolean("Formaldehyde");
-let meduChose = Boolean("Medulla Ossium");
+
+
+let livreFound = false;
+let lycoChose = false;
+let formaChose = false;
+let meduChose = false;
 
 localStorage.setItem("Livre", false);
 localStorage.setItem("Lycoris Radiata", false);
@@ -241,6 +243,7 @@ function ingStatus(){
 let currentChapter = localStorage.getItem("Name")
 
 function playStory() {
+    goToChapter("prologue")
     if (currentChapter !=="prologue") {
         goToChapter(currentChapter)
     } else {
@@ -251,11 +254,11 @@ function playStory() {
 playStory();
 
 
-/*function reset() {
+/*function reset() { 
     livreFound = false;
     lycoChose = false;
     formaChose = false;
     meduChose = false;
     localStorage.clear();
     goToChapter("prologue");
-}*/
+} pour 5.1 */ 
