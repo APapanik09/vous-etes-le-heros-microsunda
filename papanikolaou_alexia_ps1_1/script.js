@@ -46,7 +46,8 @@ finbarr: {
     img:"mauv_barr.jpg",
     options: [
         {text:'Réessayer', action:'goToChapter("prologue")'},
-    ]
+    ],
+    video:"badendingzombie.mp4"
 },
 
 verifliv: {
@@ -55,7 +56,8 @@ verifliv: {
     img:"livre_ouvert.jpg",
     options: [
         {text:'Suivant', action:'goToChapter("enigfleur")'},
-    ]
+    ],
+    video:"booklatin.mp4"
 },
 
 finliv: {
@@ -64,7 +66,8 @@ finliv: {
     img:"zombiefille.jpg",
     options: [
         {text:'Réessayer', action:'goToChapter("prologue")'},
-    ]
+    ],
+    video:"badendingzombie.mp4"
 },
 
 enigfleur: {
@@ -113,7 +116,8 @@ fining: {
     img:"zombiefille.jpg",
     options: [
         {text:'Réessayer', action:'goToChapter("prologue")'}
-    ]
+    ],
+    video:"badendingzombie.mp4"
 },
 
 choixcui: {
@@ -123,7 +127,8 @@ choixcui: {
     options: [
         {text:'Micro-onde', action:'goToChapter("finmicro")'},
         {text:'Four', action:'goToChapter("finfour")'},
-    ]
+    ],
+    video:"bluepotion.mp4"
 },
 
 finfour: {
@@ -132,7 +137,9 @@ finfour: {
     img:"zombiefille.jpg",
     options: [
         {text:'Réessayer', action:'goToChapter("prologue")'}
-    ]
+    ],
+    video:"ovenfire.mp4"
+
 },
 
 finmicro: {
@@ -141,7 +148,8 @@ finmicro: {
     img:"syringe.jpg",
     options: [
         {text:'Recommencer?', action:'goToChapter("prologue")'}
-    ]
+    ],
+    video:"goodendingzombies.mp4"
 },
 
 
@@ -165,16 +173,34 @@ function goToChapter(chapterName) {
 
     }
 
-}
-goToChapter("prologue");
+if (chaptersObj[chapterName]["video"]) {
+    document.querySelector(".imags").innerHTML = '<video class="vids" src="assets/video/' + chaptersObj[chapterName]["video"] + '"autoplay loop muted"">';
 
-let livreFound = false;
-let lycoChose = false;
-let formaChose = false;
-let meduChose = false;
+} else {
+    document.querySelector(".imags").innerHTML= '<img class="representation" src="assets/images/'+ chaptersObj[chapterName]["img"] +'">';
+
+}
+let soundEffect = new Audio("assets/sounds/buttonsounds.wav");
+soundEffect.play();
+
+localStorage.setItem("Name",[chapterName]);
+
+
+}
+
+let livreFound = Boolean("Livre");
+let lycoChose = Boolean("Lycoris Radiata");
+let formaChose = Boolean("Formaldehyde");
+let meduChose = Boolean("Medulla Ossium");
+
+localStorage.setItem("Livre", false);
+localStorage.setItem("Lycoris Radiata", false);
+localStorage.setItem("Formaldehyde", false);
+localStorage.setItem("Medulla Ossium", false);
 
 function livreTrue(){
-    livreFound = true;
+    localStorage.setItem("Livre", true);
+    livreFound = Boolean("Livre");
     goToChapter("barricade");
 }
 
@@ -187,17 +213,20 @@ function livreStatus(){
 }
 
 function lycoTrue() {
-    lycoChose = true;
+    localStorage.setItem("Lycoris Radiata", true);
+    lycoChose = Boolean("Lycoris Radiata");
     goToChapter("enigchim");
 }
 
 function formaTrue(){
-    formaChose = true;
+    localStorage.setItem("Formaldehyde", true);
+    formaChose = Boolean("Formaldehyde");
     goToChapter("enigorg");
 }
 
 function meduTrue(){
-    meduChose = true;
+    localStorage.setItem("Medulla Ossium", true);
+    meduChose = Boolean("Medulla Ossium");
     goToChapter("verifing");
 }
 
@@ -208,3 +237,25 @@ function ingStatus(){
         goToChapter("fining");
     }
 }
+
+let currentChapter = localStorage.getItem("Name")
+
+function playStory() {
+    if (currentChapter !=="prologue") {
+        goToChapter(currentChapter)
+    } else {
+        goToChapter("prologue")
+    }
+}
+
+playStory();
+
+
+/*function reset() {
+    livreFound = false;
+    lycoChose = false;
+    formaChose = false;
+    meduChose = false;
+    localStorage.clear();
+    goToChapter("prologue");
+}*/
