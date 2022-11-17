@@ -183,24 +183,25 @@ if (chaptersObj[chapterName]["video"]) {
 let soundEffect = new Audio("assets/sounds/buttonsounds.wav");
 soundEffect.play();
 
-localStorage.setItem("Name",[chapterName]);
+/*localStorage.setItem("Name",[chapterName]);*/
 
 
 }
 
-let livreFound = Boolean("Livre");
-let lycoChose = Boolean("Lycoris Radiata");
-let formaChose = Boolean("Formaldehyde");
-let meduChose = Boolean("Medulla Ossium");
+goToChapter("prologue");
 
-localStorage.setItem("Livre", false);
+let livreFound = false;
+let lycoChose = false;
+let formaChose = false;
+let meduChose = false;
+
+/*localStorage.setItem("Livre", false);
 localStorage.setItem("Lycoris Radiata", false);
 localStorage.setItem("Formaldehyde", false);
-localStorage.setItem("Medulla Ossium", false);
+localStorage.setItem("Medulla Ossium", false);*/
 
 function livreTrue(){
-    localStorage.setItem("Livre", true);
-    livreFound = Boolean("Livre");
+    livreFound = true;
     goToChapter("barricade");
 }
 
@@ -213,20 +214,17 @@ function livreStatus(){
 }
 
 function lycoTrue() {
-    localStorage.setItem("Lycoris Radiata", true);
-    lycoChose = Boolean("Lycoris Radiata");
+    lycoChose = true;
     goToChapter("enigchim");
 }
 
 function formaTrue(){
-    localStorage.setItem("Formaldehyde", true);
-    formaChose = Boolean("Formaldehyde");
+    formaChose = true;
     goToChapter("enigorg");
 }
 
 function meduTrue(){
-    localStorage.setItem("Medulla Ossium", true);
-    meduChose = Boolean("Medulla Ossium");
+    meduChose = true;
     goToChapter("verifing");
 }
 
@@ -238,7 +236,7 @@ function ingStatus(){
     }
 }
 
-let currentChapter = localStorage.getItem("Name")
+/*let currentChapter = localStorage.getItem("Name") 
 
 function playStory() {
     if (currentChapter !=="prologue") {
