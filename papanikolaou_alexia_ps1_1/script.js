@@ -188,7 +188,7 @@ localStorage.setItem("Name",[chapterName]);
 
 }
 
-
+let resetbutton = document.getElementById("resetting");
 
 let livreFound = false;
 let lycoChose = false;
@@ -254,12 +254,13 @@ function playStory() {
 playStory();
 
 
-/*function reset() { 
+resetbutton.addEventListener("click",function () { 
     livreFound = false;
     lycoChose = false;
     formaChose = false;
     meduChose = false;
     localStorage.clear();
     goToChapter("prologue");
-} pour 5.1 */ 
+} );
+
 
