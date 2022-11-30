@@ -23,7 +23,7 @@ livres: {
 
 barricade: {
     subtitle: "Faites vite!",
-    text: "Vous avez trouvé le laboratoire mais une horde de zombies s'approche rapidement de vous. Ton amie se fait mordre et vous rentrer hâtivement dans dans le laboratoire. Vous avez le choix entre deux types de barricades pour vous protéger des zombies affamés.",
+    text: "Vous avez trouvé le laboratoire mais une horde de zombies s'approche rapidement de vous. Ton amie se fait mordre et vous rentrer hâtivement dans le laboratoire. Vous avez le choix entre deux types de barricades pour vous protéger des zombies affamés.",
     img:"barricade_latch.jpg",
     options: [
         {text:'Déplacer une commode devant la porte?', action:'goToChapter("finbarr")'},
@@ -262,3 +262,4 @@ playStory();
     localStorage.clear();
     goToChapter("prologue");
 } pour 5.1 */ 
+
