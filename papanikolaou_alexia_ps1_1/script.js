@@ -180,13 +180,17 @@ if (chaptersObj[chapterName]["video"]) {
     document.querySelector(".imags").innerHTML= '<img class="representation" src="assets/images/'+ chaptersObj[chapterName]["img"] +'">';
 
 }
-let soundEffect = new Audio("assets/sounds/buttonsounds.wav");
-soundEffect.play();
 
+const soundEffect = new Audio("assets/sounds/buttonsounds.wav");
+soundEffect.play();
 localStorage.setItem("Name",[chapterName]);
 
 
 }
+
+
+
+
 
 let resetbutton = document.getElementById("resetting");
 
