@@ -96,7 +96,7 @@ video {
     border: groove rgb(124, 152, 179) 10px;
     width: 100%;
     height: 100%;
-    max-height: 550px;
+    max-height: 500px;
 }
 
 #resetting {
@@ -110,3 +110,44 @@ padding: 5px;
 label {
     align-self: flex-end
 }
+
+html .finmicro {
+    background-color: #FBF3B1;
+    transition: background-color linear 2s ;
+}
+
+.finmicro .game {
+    background-color: #F7E868;
+    transition: background-color linear 2s ;
+}
+
+.finmicro button {
+    transition: background-color, linear 2s ;
+    border: groove rgb(172,162,72) 10px;
+    background-color: #FBF3B1;
+}
+
+.finmicro video {
+    border: groove rgb(172,162,72) 10px;
+}
+
+html .finfour {
+    background-color: #FBD0CC;
+    transition: background-color linear 2s ;
+}
+
+.finfour .game {
+    background-color: #F68B81;
+    transition: background-color linear 2s ;
+}
+
+.finfour button {
+    transition: background-color, linear 2s ;
+    border: groove rgb(244,111,100) 10px;
+    background-color: #FBD0CC;
+}
+
+.finfour video {
+    border: groove rgb(244,111,100) 10px;
+}
+
