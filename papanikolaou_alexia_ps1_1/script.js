@@ -52,7 +52,7 @@ finbarr: {
 
 verifliv: {
     subtitle: "Le fameux remède!",
-    text: "Vous ouvrez le livre et découvrez qu'il est en latin. Heureusement, vous avez justement pris le livre de traduction latin lors de votre trajet vers le laboratoire. Vous pouvez donc le traduire. Les mots sur la première page racontent l'histoire d'un scientifique et de sa miraculeuse découverte d'un antidote contre ce fichu virus. Malheureusement en s'utilisant comme propre cobaye durant ses expérimentations, il s'est condamné à mourir et n'a pas pu transmettre son savoir. À cause de son infection, les instructions pour recréer le virus sont énigmatiques et disjonctées, vous devez donc résoudre plusieurs énigmes pour connaître les ingrédients ainsi que les étapes nécessaires à la fabrication de cet antidote. Le livre vous dit qu'il vous faut une fleur, un élément chimique et quelque chose d'organique mais ne spécifie pas plus que ça. Vous réalisez qu'il y a trois pages du livre qui sont déchirées, celles-ci sont éparpillées près de substances qui pourraient servir d'ingrédients. La dernière ligne du livre souligne que l'antidote devrait virer au bleu une fois mélangé.",
+    text: "Vous ouvrez le livre et découvrez qu'il est en latin. Heureusement, vous avez justement pris le livre de traduction latin lors de votre trajet vers le laboratoire. Vous pouvez donc le traduire. Les mots sur la première page racontent l'histoire d'un scientifique et de sa miraculeuse découverte d'un antidote contre le virus. En s'utilisant comme propre cobaye, il s'est condamné à mourir et n'a pas pu transmettre son savoir. À cause de son infection, les instructions pour recréer le virus sont disjonctées, vous devez donc résoudre plusieurs énigmes pour connaître les ingrédients. La dernière ligne du livre souligne que l'antidote devrait virer au bleu une fois mélangé.",
     img:"livre_ouvert.jpg",
     options: [
         {text:'Suivant', action:'goToChapter("enigfleur")'},
@@ -154,7 +154,7 @@ finmicro: {
 
 
 }
-
+let parent = document.querySelector("body");
 function goToChapter(chapterName) {
     document.querySelector(".chapitre").textContent=chaptersObj[chapterName]["subtitle"];
     document.querySelector(".texte").textContent=chaptersObj[chapterName]["text"];
@@ -181,16 +181,23 @@ if (chaptersObj[chapterName]["video"]) {
 
 }
 
-const soundEffect = new Audio("assets/sounds/buttonsounds.wav");
-soundEffect.play();
 localStorage.setItem("Name",[chapterName]);
-
+parent.setAttribute("class",[chapterName]);
 
 }
+const soundEffect = new Audio("assets/sounds/buttonsounds.wav");
+let audiobox = document.querySelector("input");
 
+audiobox.addEventListener("change", function() {
+    if (audiobox.checked==true) {
+        localStorage.setItem("value", true);
+        soundEffect.play();
+    } else {
+        localStorage.setItem("value", false);
+        soundEffect.pause();
+    }
 
-
-
+})
 
 let resetbutton = document.getElementById("resetting");
 
@@ -266,5 +273,4 @@ resetbutton.addEventListener("click",function () {
     localStorage.clear();
     goToChapter("prologue");
 } );
-
 
