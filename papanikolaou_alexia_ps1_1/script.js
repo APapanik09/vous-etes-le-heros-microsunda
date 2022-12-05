@@ -184,20 +184,19 @@ if (chaptersObj[chapterName]["video"]) {
 localStorage.setItem("Name",[chapterName]);
 parent.setAttribute("class",[chapterName]);
 
-}
-const soundEffect = new Audio("assets/sounds/buttonsounds.wav");
-let audiobox = document.querySelector("input");
 
-audiobox.addEventListener("change", function() {
+let audiobox = document.querySelector(".audiocheck");
+
+
     if (audiobox.checked==true) {
-        localStorage.setItem("value", true);
+        const soundEffect = new Audio("assets/sounds/buttonsounds.wav");
+        soundEffect.currentTime=0;
         soundEffect.play();
-    } else {
-        localStorage.setItem("value", false);
-        soundEffect.pause();
     }
 
-})
+}
+
+
 
 let resetbutton = document.getElementById("resetting");
 
